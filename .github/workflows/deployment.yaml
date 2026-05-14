@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-app  # This should match the var DEPLOYMENT_NAME
+  namespace: ips
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: app-medicos
+  template:
+    metadata:
+      labels:
+        app: app-medicos
+    spec:
+      imagePullSecrets:
+        - name: mi-registro-secreto
+      containers:
+        - name: backend-app  # This should match the var DEPLOYMENT_NAME
+          image: juliacn22/practica-7-medicos:latest # TODO: modify with your repo
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
