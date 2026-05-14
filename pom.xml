@@ -71,7 +71,10 @@
             <scope>runtime</scope>
         </dependency>
     </dependencies>
+
+
     <build>
+        <finalName>app</finalName>
         <plugins>
             <plugin>
             <groupId>org.jacoco</groupId>
